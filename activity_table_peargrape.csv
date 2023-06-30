@@ -1,0 +1,131 @@
+activity_id,ts,customer,activity,anonymous_customer_id,feature_json,revenue_impact,link
+df3v34dd3fn49sfe,2023-06-01 09:00:00,johndoe@example.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+g48s6a29sefhcn3d,2023-06-01 09:10:00,janedoe@example.com,click,,"{""page"": ""pricing"", ""source"": ""referral""}",,https://example.com/pricing
+1d8s9a3j29snsf28,2023-06-01 09:15:00,janedoe@acme.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com/about-us
+f8d73dfg5nswd9f4,2023-06-01 09:20:00,alexsmith@example.com,click,,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/products
+4f3g29sf9sdnfld3,2023-06-01 09:25:00,,click,segment_23kdfjdnfjn8r,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/products
+w0nsdf84s5dgd934,2023-06-01 09:30:00,sarahjones@example.com,click,,"{""page"": ""about_us"", ""source"": ""organic""}",,https://example.com/about-us
+h4fjsd8g4sd0s9f5,2023-06-01 09:35:00,janedoe@example.com,click,,"{""page"": ""contact_us"", ""source"": ""referral""}",,https://example.com/contact-us
+s9d8fg4sd9f83sj4,2023-06-01 09:40:00,,click,segment_abd5d3,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+a8f3j94snf84sdn4,2023-06-01 09:45:00,johndoe@example.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+mncs9d8f4n3f54ns,2023-06-01 09:50:00,sarahsmith@example.com,click,,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/products
+fs3d9f0sdg83s4dn,2023-06-01 09:55:00,johndoe@example.com,click,,"{""page"": ""testimonials"", ""source"": ""organic""}",,https://example.com/testimonials
+8a3j4nd8f4sdf3n9,2023-06-01 10:00:00,,lead,segment_23kdfjdnfjn8r,"{""form"": ""newsletter_signup""}",,
+m5n7f8g6s9d0g9s2,2023-06-01 10:05:00,janedoe@example.com,lead,,"{""form"": ""website_chat""}",,
+b5d3f4n6s9f2j8a1,2023-06-01 10:10:00,,click,segment_asda567,"{""page"": ""about_us"", ""source"": ""organic""}",,https://example.com/about-us
+s3d8g2d9g4s5n6f7,2023-06-01 10:15:00,alexsmith@example.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+n2f4s5j8d3s6n7g9,2023-06-01 10:20:00,janedoe@example.com,consultation,,"{""preferred_time"": ""evening""}",,
+g2d9f3s4g5n6a8j1,2023-06-01 10:25:00,,click,segment_baskd7asd,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/products
+j4n6a8j2d3s5g9f4,2023-06-01 10:30:00,alexsmith@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+s3g9f7g5s4d6n8j2,2023-06-01 10:35:00,johndoe@example.com,click,,"{""page"": ""products"", ""source"": ""referral""}",,https://example.com/products
+m1n3f4s5j6d8s9g7,2023-06-01 10:40:00,janedoe@example.com,click,,"{""page"": ""pricing"", ""source"": ""paid_ad""}",,https://example.com/pricing
+j7g9f5s3d4n6a8j2,2023-06-01 10:45:00,,click,segment_sf8sdfdf7,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+s4d5n6g7a8j2f3s9,2023-06-01 10:50:00,alexsmith@example.com,consultation,,"{""preferred_time"": ""afternoon""}",,
+m4n6j8a2d3s5g9f7,2023-06-01 10:55:00,janedoe@example.com,lead,,"{""form"": ""website_chat""}",,
+j2g3f4s5d6n8a9j1,2023-06-01 11:00:00,johndoe@example.com,click,,"{""page"": ""contact_us"", ""source"": ""referral""}",,https://example.com/contact-us
+s5d6n7g8a9j1f2s3,2023-06-01 11:05:00,,click,segment_34sf23sdfdf,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+j9g8f7s6d5n4a3j1,2023-06-01 11:10:00,janedoe@example.com,click,,"{""page"": ""pricing"", ""source"": ""referral""}",,https://example.com/pricing
+s2d3n4g5a6j7f8s9,2023-06-01 11:15:00,janedoe@acme.com,lead,,"{""form"": ""newsletter_signup""}",,
+j1g2f3s4d5n6a7j9,2023-06-01 11:20:00,alexsmith@example.com,sale,,"{""product"": ""ebook"", ""price"": 19.99}","19,99",
+s9d8g7f6s5n4a3j2,2023-06-01 11:25:00,johndoe@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+j8g7f6s5d4n3a2j1,2023-06-01 11:30:00,janedoe@example.com,sale,,"{""product"": ""ebook"", ""price"": 19.99}","19,99",
+s4d3n2g1a9j8f7s6,2023-06-01 11:35:00,,click,segment_abd5d3,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/products
+j5g9f7s3d6n4a8j2,2023-06-01 11:40:00,alexsmith@example.com,click,,"{""page"": ""about_us"", ""source"": ""organic""}",,https://example.com/about-us
+s5d6n7g8a2j3f4s9,2023-06-01 11:45:00,janedoe@example.com,click,,"{""page"": ""products"", ""source"": ""referral""}",,https://example.com/products
+j2g3f4s5d6n7a8j9,2023-06-01 11:50:00,,click,segment_sdf9sdfjf6,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/products
+s9d8g7f6sdsdn4a3j2,2023-06-01 11:55:00,alexsmith@example.com,lead,,"{""form"": ""website_chat""}",,
+j1g2f3s4dfasfn6a7j9,2023-06-01 12:00:00,janedoe@example.com,click,,"{""page"": ""products"", ""source"": ""referral""}",,https://example.com/products
+s4d5n6g34j2f3s9,2023-06-01 12:05:00,johndoe@example.com,consultation,,"{""preferred_time"": ""morning""}",,
+m3n5j7a9d1s2f4g6,2023-06-01 12:10:00,,click,segment_34sf23sdfdf,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/products
+j4g6a8j2d3s5g9f4,2023-06-01 12:15:00,alexsmith@example.com,click,,"{""page"": ""pricing"", ""source"": ""referral""}",,https://example.com/pricing
+s3g5f7g8s9d1n2a4j6,2023-06-01 12:20:00,janedoe@example.com,lead,,"{""form"": ""website_chat""}",,
+j8g2f3s4d9n1a5j6,2023-06-01 12:25:00,johndoe@example.com,sale,,"{""product"": ""ebook"", ""price"": 19.99}","19,99",
+s1d2n3g4a5j6f7s8,2023-06-01 12:30:00,,click,segment_sf8sdfdf7,"{""page"": ""contact_us"", ""source"": ""referral""}",,https://example.com/contact-us
+j9g8f734dd5n4a3j1,2023-06-01 12:35:00,janedoe@example.com,consultation,,"{""preferred_time"": ""morning""}",,
+s2d3adfasg5a6j7f8s9,2023-06-01 12:40:00,janedoe@acme.com,consultation,,"{""preferred_time"": ""evening""}",,
+j1g2f3d5n6a7j9,2023-06-01 12:45:00,alexsmith@example.com,click,,"{""page"": ""testimonials"", ""source"": ""organic""}",,https://example.com/testimonials
+s9dasdas7f6s5n4a3j2,2023-06-01 12:50:00,johndoe@example.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+j8g7f6s5d4n3a2sdf,2023-06-01 12:55:00,janedoe@example.com,click,,"{""page"": ""faq"", ""source"": ""referral""}",,https://example.com/faq
+s4d3n2g9j8f7s6,2023-06-01 13:00:00,,click,segment_abd5d3,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/products
+j5g9f7s3sdfdsfn4a8j2,2023-06-01 13:05:00,alexsmith@example.com,click,,"{""page"": ""about_us"", ""source"": ""organic""}",,https://example.com/about-us
+1g7h89j2k4l6mnp5,2023-06-01 13:10:00,janedoe@example.com,click,,"{""page"": ""testimonials"", ""source"": ""organic""}",,https://example.com/testimonials
+a1b3c5d7e9f2gh4,2023-06-01 13:15:00,,click,segment_asjd7asd2,"{""page"": ""about_us"", ""source"": ""organic""}",,https://example.com/about-us
+i3j5k7l9m2n4p6q,2023-06-01 13:20:00,alexsmith@example.com,lead,,"{""form"": ""website_chat""}",,
+r5s7t9u2v4w6x8y,2023-06-01 13:25:00,janedoe@example.com,click,,"{""page"": ""products"", ""source"": ""referral""}",,https://example.com/products
+z9a2b4c6d8e0f3g,2023-06-01 13:30:00,johndoe@example.com,click,,"{""page"": ""pricing"", ""source"": ""paid_ad""}",,https://example.com/pricing
+h5j7k9l2m4n6p8q,2023-06-01 13:35:00,,lead,segment_abd5d3,"{""form"": ""newsletter_signup""}",,
+r2s4t6u8v0w3x5y,2023-06-01 13:40:00,alexsmith@example.com,consultation,,"{""preferred_time"": ""evening""}",,
+z7a9b2c4d6e8f0g,2023-06-01 13:45:00,janedoe@example.com,click,,"{""page"": ""about_us"", ""source"": ""organic""}",,https://example.com/about-us
+h1j3k5l7m9n2p4,2023-06-01 13:50:00,johndoe@example.com,lead,,"{""form"": ""website_chat""}",,
+q3r5s7t9u2v4w6,2023-06-01 13:55:00,,lead,segment_sdf9sdfjf6,"{""form"": ""website_chat""}",,
+x5y7z9a2b4c6d8,2023-06-01 14:00:00,janedoe@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+e1f3g5h7j9k2l4,2023-06-01 14:05:00,janedoe@acme.com,click,,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/contact-us
+m3n5p7q9r2s4t6,2023-06-01 14:10:00,alexsmith@example.com,sale,,"{""product"": ""subscription"", ""price"": 99.99}","99,99",
+u5v7w9x2y4z6a8,2023-06-01 14:15:00,johndoe@example.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+b9c2d4e6f8g0h3,2023-06-01 14:20:00,janedoe@example.com,click,,"{""page"": ""faq"", ""source"": ""referral""}",,https://example.com/faq
+i1j3k5l7m9n2p4,2023-06-01 14:25:00,,consultation,segment_abd5d3,"{""preferred_time"": ""morning""}",,
+q5r7s9t2u4v6w8,2023-06-01 14:30:00,alexsmith@example.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+x9y2z4a6b8c0d3,2023-06-01 14:35:00,janedoe@example.com,click,,"{""page"": ""about_us"", ""source"": ""organic""}",,https://example.com/about-us
+e5f7g9h2j4k6l8,2023-06-01 14:40:00,,click,segment_kdne5wn,"{""page"": ""contact_us"", ""source"": ""referral""}",,https://example.com/contact-us
+m1n3p5q7r9s2t4,2023-06-01 14:45:00,alexsmith@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+u7v9w2x4y6z8a0,2023-06-01 14:50:00,janedoe@example.com,click,,"{""page"": ""products"", ""source"": ""referral""}",,https://example.com/products
+b3c5d7e9f2g4h6,2023-06-01 14:55:00,johndoe@example.com,click,,"{""page"": ""pricing"", ""source"": ""paid_ad""}",,https://example.com/pricing
+4s8d3j9gfn3ns4df,2023-06-01 15:00:00,,lead,segment_sf8sdfdf7,"{""form"": ""newsletter_signup""}",,
+n3sj9f4g8d3ndfs4,2023-06-01 15:05:00,alexsmith@example.com,consultation,,"{""preferred_time"": ""evening""}",,
+sd8fj34ng4df9ns3,2023-06-01 15:10:00,janedoe@example.com,lead,,"{""form"": ""website_chat""}",,
+9s8d43jfgn3df4sn,2023-06-01 15:15:00,johndoe@example.com,click,,"{""page"": ""contact_us"", ""source"": ""referral""}",,https://example.com/contact-us
+3n9f4sd8ng3dfjs4,2023-06-01 15:20:00,,sale,segment_abd5d3,"{""product"": ""gift"", ""price"": 8.99}","8,99",
+jfg9n3s8df34sd9n,2023-06-01 15:25:00,janedoe@example.com,consultation,,"{""preferred_time"": ""morning""}",,
+34d9nf8sd3gjfs9n,2023-06-01 15:30:00,janedoe@acme.com,lead,,"{""form"": ""newsletter_signup""}",,
+s9d8fj34n4gd3fns,2023-06-01 15:35:00,alexsmith@example.com,click,,"{""page"": ""testimonials"", ""source"": ""organic""}",,https://example.com/testimonials
+dfnsgj48d93n4fs,2023-06-01 15:40:00,johndoe@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+4n9sd8gf34jd3nsf,2023-06-01 15:45:00,janedoe@example.com,click,,"{""page"": ""faq"", ""source"": ""referral""}",,https://example.com/faq
+f3s4g8d9n34njsf,2023-06-01 15:50:00,,click,segment_abd5d3,"{""page"": ""about_us"", ""source"": ""organic""}",,https://example.com/about-us
+s9df8gn34d3n4jsf,2023-06-01 15:55:00,alexsmith@example.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+4gndf3n9s8d4sfjn,2023-06-01 16:00:00,janedoe@example.com,click,,"{""page"": ""faq"", ""source"": ""referral""}",,https://example.com/faq
+f8ng3d94snj4dsf,2023-06-01 16:05:00,,lead,segment_kdne5wn,"{""form"": ""website_chat""}",,
+4n9sdfj83dgn4fs,2023-06-01 16:10:00,alexsmith@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+8fd43ng4s9d3fjn,2023-06-01 16:15:00,janedoe@example.com,click,,"{""page"": ""products"", ""source"": ""referral""}",,https://example.com/products
+f8j4n3dgs9f4sdn,2023-06-01 16:20:00,johndoe@example.com,consultation,,"{""preferred_time"": ""morning""}",,
+9f4sdj38gn4nsfd,2023-06-01 16:25:00,,consultation,segment_sf8sdfdf7,"{""preferred_time"": ""evening""}",,
+n4sdg3j8fd93snf,2023-06-01 16:30:00,alexsmith@example.com,consultation,,"{""preferred_time"": ""evening""}",,
+jsd9f3g84s3n4dn,2023-06-01 16:35:00,janedoe@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+9s3d4fj8g4nsfdn,2023-06-01 16:40:00,johndoe@example.com,sale,,"{""product"": ""ebook"", ""price"": 19.99}","19,99",
+ndfg3s9d4j3fsn,2023-06-01 16:45:00,,lead,segment_34sf23sdfdf,"{""form"": ""website_chat""}",,
+sdf39jn8g43sdfn,2023-06-01 16:50:00,janedoe@example.com,consultation,,"{""preferred_time"": ""morning""}",,
+9n3gdf4j8snfd3s,2023-06-01 16:55:00,janedoe@acme.com,consultation,,"{""preferred_time"": ""morning""}",,
+f3ng4s9dfj843ds,2023-06-01 17:00:00,alexsmith@example.com,click,,"{""page"": ""testimonials"", ""source"": ""organic""}",,https://example.com/testimonials
+j4s9d8fgn34sdnf,2023-06-01 17:05:00,johndoe@example.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+3dn9sf84gj3d4sn,2023-06-01 17:10:00,janedoe@example.com,click,,"{""page"": ""faq"", ""source"": ""referral""}",,https://example.com/faq
+gn4j83sd9fn4s3d,2023-06-01 17:15:00,,lead,segment_abd5d3,"{""form"": ""newsletter_signup""}",,
+fng3d94sjs8d4nf,2023-06-01 17:20:00,alexsmith@example.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+4j8n39sfd34gdsn,2023-06-01 17:25:00,janedoe@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+3d9gfn4j8sd3s4n,2023-06-01 17:30:00,,consultation,segment_kdne5wn,"{""preferred_time"": ""afternoon""}",,
+fgn3sd94j3n4fs,2023-06-01 17:35:00,alexsmith@example.com,lead,,"{""form"": ""website_chat""}",,
+4nsd8g3j9n4f3s,2023-06-01 17:40:00,janedoe@example.com,click,,"{""page"": ""products"", ""source"": ""referral""}",,https://example.com/products
+jf8d4n3g9sd3fn,2023-06-01 17:45:00,johndoe@example.com,click,,"{""page"": ""pricing"", ""source"": ""paid_ad""}",,https://example.com/pricing
+39j4nd8g3fs4dn,2023-06-01 17:50:00,,consultation,segment_sdf9sdfjf6,"{""preferred_time"": ""evening""}",,
+dfn3gj984s3dnf,2023-06-01 17:55:00,alexsmith@example.com,consultation,,"{""preferred_time"": ""evening""}",,
+4nd8s3df9g4j3n,2023-06-01 18:00:00,janedoe@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+f83jng4s9dfn3,2023-06-01 18:05:00,johndoe@example.com,click,,"{""page"": ""contact_us"", ""source"": ""referral""}",,https://example.com/contact-us
+3d9gfnj4sd8fs4,2023-06-01 18:10:00,,consultation,segment_34sf23sdfdf,"{""preferred_time"": ""morning""}",,
+fgn3sd94j3n4f,2023-06-01 18:15:00,janedoe@example.com,consultation,,"{""preferred_time"": ""morning""}",,
+4nsd8g3j9n4f3,2023-06-01 18:20:00,janedoe@acme.com,sale,,"{""product"": ""ebook"", ""price"": 9.99}","9,99",
+jf8d4n3g9sd3f,2023-06-01 18:25:00,alexsmith@example.com,sale,,"{""product"": ""gift"", ""price"": 8.99}","8,99",
+39j4nd8g3fs4d,2023-06-01 18:30:00,johndoe@example.com,lead,,"{""form"": ""website_chat""}",,
+dfn3gj984s3dn,2023-06-01 18:35:00,janedoe@example.com,sale,,"{""product"": ""subscription"", ""price"": 99.99}","99,99",
+4nd8s3df9g4j3,2023-06-01 18:40:00,,click,segment_asdj65sds,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/products
+f83jng4s9dfn,2023-06-01 18:45:00,alexsmith@example.com,click,,"{""page"": ""homepage"", ""source"": ""organic""}",,https://example.com
+3d9gfnj4sd8fs,2023-06-01 18:50:00,janedoe@example.com,click,,"{""page"": ""products"", ""source"": ""referral""}",,https://example.com/products
+fgn3sd94j3n4,2023-06-01 18:55:00,,sale,segment_sf8sdfdf7,"{""product"": ""ebook"", ""price"": 19.99}","19,99",
+4nsd8g3j9n4f,2023-06-01 19:00:00,alexsmith@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+jf8d4n3g9sd3,2023-06-01 19:05:00,janedoe@example.com,click,,"{""page"": ""products"", ""source"": ""referral""}",,https://example.com/products
+39j4nd8g3fs4,2023-06-01 19:10:00,johndoe@example.com,consultation,,"{""preferred_time"": ""morning""}",,
+dfn3gj984s3d,2023-06-01 19:15:00,,lead,segment_asdj65sds,"{""form"": ""newsletter_signup""}",,
+4nd8s3df9g4j,2023-06-01 19:20:00,alexsmith@example.com,consultation,,"{""preferred_time"": ""evening""}",,
+f83jng4s9df,2023-06-01 19:25:00,janedoe@example.com,lead,,"{""form"": ""newsletter_signup""}",,
+3d9gfnj4sd8f,2023-06-01 19:30:00,johndoe@example.com,click,,"{""page"": ""contact_us"", ""source"": ""referral""}",,https://example.com/contact-us
+fgn3sd94j3n,2023-06-01 19:35:00,,consultation,segment_abd5d3,"{""preferred_time"": ""afternoon""}",,
+4nsd8g3j9n4,2023-06-01 19:40:00,janedoe@example.com,consultation,,"{""preferred_time"": ""morning""}",,
+jf8d4n3g9sd,2023-06-01 19:45:00,janedoe@acme.com,click,,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,https://example.com/testimonials
+39j4nd8g3fs,2023-06-01 19:50:00,alexsmith@example.com,click,,"{""page"": ""testimonials"", ""source"": ""organic""}",,https://example.com/testimonials
