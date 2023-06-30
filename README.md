@@ -10,6 +10,9 @@ This is an example of an activity schema populated with fictional data. See info
 
 ## Conceptual schema of activity
 ![Sales funnel](Funnel.png "Sales funnel")
+
+<br>
+
 There are 4 types of activities, `click` -> `lead` -> `consultation` -> `sale`. A customer clicks links one or several times (links they have clicked are displayed in `link` column), then it can be followed by a `lead` with filling a form (displayed in `feature_json` column), then a `consultation` comes (`feature_json` displays preferred time), and, finally, it can end up with a sale. In this case, there is a description in `feature_json` column, e.g. 
 ```json
 {
