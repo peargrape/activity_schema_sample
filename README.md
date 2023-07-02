@@ -1,12 +1,20 @@
 Activity schema based on fictional data
 ==========================================
 
-This is an example of an activity schema populated with fictional data. See info on [ActivitySchema](https://github.com/ActivitySchema/ActivitySchema/blob/main/README.md) as well as [Documentation](https://github.com/ActivitySchema/ActivitySchema/blob/main/2.0.md).
+This is an example of an activity schema populated with fictional data
+
+### Useful links  
+  
+- [Pros and cons of Activity Schema](https://www.reddit.com/r/SQL/comments/qj1czv/comment/hinjb2y/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button), a useful comment in the discussion on Reddit  
+- [Introducing the ACTIVITY SCHEMA](https://youtu.be/c0WKg0HBhQs) by Ahmed Ensamadisi. Rather an ad of a product, actually  
+- [ActivitySchema repo](https://github.com/ActivitySchema/ActivitySchema/blob/main/README.md) with explanation and documentation  
+- [Avtivity Schema - future of the Data Modeling?](https://www.youtube.com/live/JXdz7-hCJyI?feature=share) by Nikolay Golov. One of the best explanations with strong and weak points. In Russian, unfortunately  
+- [Exploring the ActivitySchema](https://www.ergestx.com/activity-schema/), another exampleof a good explanation with examples of temporal relations (First ever, Last ever, First before, etc.)  
 
 ### List of files:
-[Funnel image](Funnel.png)
-[Activity table](activity_table_peargrape.csv)
-[SQL script](script.sql)
+[Funnel image](Funnel.png)  
+[Activity table](activity_table_peargrape.csv)  
+[SQL script](script.sql)  
 
 ## Conceptual schema of activity
 ![Sales funnel](Funnel.png "Sales funnel")
