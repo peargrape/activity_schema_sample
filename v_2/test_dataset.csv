@@ -1,0 +1,31 @@
+ts,customer,activity,feature_json,revenue_impact,link
+2023-06-01 10:10:00,alex.wilson@example.com,click,"{""page"": ""about_us"", ""source"": ""organic""}",,https://www.example.com/new-product-launch
+2023-06-01 10:40:00,daniel.thomas@example.com,click,"{""page"": ""pricing"", ""source"": ""paid_ad""}",,https://www.example.com/exclusive-discount
+2023-06-01 11:15:00,daniel.thomas@example.com,click,"{""form"": ""newsletter_signup""}",,https://www.example.com/new-product-launch
+2023-06-01 11:25:00,daniel.thomas@example.com,click,"{""form"": ""newsletter_signup""}",,https://www.example.com/new-product-launch
+2023-06-01 10:00:00,emily.jackson@example.com,consultation,"{""form"": ""newsletter_signup""}",,
+2023-06-01 10:05:00,emily.jackson@example.com,consultation,"{""form"": ""website_chat""}",,
+2023-06-01 9:25:00,emma.smith@example.com,lead,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,
+2023-06-01 9:40:00,emma.smith@example.com,click,"{""page"": ""homepage"", ""source"": ""organic""}",,https://www.example.com/summer-sale
+2023-06-01 9:45:00,emma.smith@example.com,lead,"{""page"": ""homepage"", ""source"": ""organic""}",,
+2023-06-01 10:15:00,emma.smith@example.com,consultation,"{""page"": ""homepage"", ""source"": ""organic""}",,
+2023-06-01 10:20:00,emma.smith@example.com,sale,"{""preferred_time"": ""evening""}",19.99,
+2023-06-01 10:55:00,emma.smith@example.com,click,"{""form"": ""website_chat""}",,https://www.example.com/special-offer
+2023-06-01 11:05:00,emma.smith@example.com,click,"{""page"": ""homepage"", ""source"": ""organic""}",,https://www.example.com/new-product-launch
+2023-06-01 11:10:00,emma.smith@example.com,lead,"{""page"": ""pricing"", ""source"": ""referral""}",,
+2023-06-01 10:30:00,john.doe@example.com,consultation,"{""form"": ""newsletter_signup""}",,
+2023-06-01 11:20:00,john.doe@example.com,sale,"{""product"": ""ebook"", ""price"": 19.99}",99.99,
+2023-06-01 9:15:00,laura.jones@example.com,click,"{""page"": ""homepage"", ""source"": ""organic""}",,https://www.example.com/new-product-launch
+2023-06-01 9:20:00,laura.jones@example.com,lead,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,
+2023-06-01 9:30:00,laura.jones@example.com,consultation,"{""page"": ""about_us"", ""source"": ""organic""}",,
+2023-06-01 10:25:00,laura.jones@example.com,sale,"{""page"": ""product_category"", ""source"": ""paid_ad""}",29.99,
+2023-06-01 10:35:00,laura.jones@example.com,click,"{""page"": ""products"", ""source"": ""referral""}",,https://www.example.com/exclusive-discount
+2023-06-01 10:45:00,laura.jones@example.com,lead,"{""page"": ""homepage"", ""source"": ""organic""}",,
+2023-06-01 10:50:00,laura.jones@example.com,consultation,"{""preferred_time"": ""afternoon""}",,
+2023-06-01 11:30:00,laura.jones@example.com,sale,"{""product"": ""ebook"", ""price"": 19.99}",19.99,
+2023-06-01 9:50:00,michael.brown@example.com,lead,"{""page"": ""product_category"", ""source"": ""paid_ad""}",,
+2023-06-01 11:00:00,michael.brown@example.com,sale,"{""page"": ""contact_us"", ""source"": ""referral""}",29.99,
+2023-06-01 9:10:00,olivia.white@example.com,click,"{""page"": ""pricing"", ""source"": ""referral""}",,https://www.example.com/new-product-launch
+2023-06-01 9:35:00,olivia.white@example.com,click,"{""page"": ""contact_us"", ""source"": ""referral""}",,https://www.example.com/limited-time-deal
+2023-06-01 9:00:00,william.martin@example.com,sale,"{""page"": ""homepage"", ""source"": ""organic""}",29.99,
+2023-06-01 9:55:00,william.martin@example.com,click,"{""page"": ""testimonials"", ""source"": ""organic""}",,https://www.example.com/special-offer

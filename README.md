@@ -1,120 +1,182 @@
-Activity schema based on fictional data
+Activity schema based on fictional data 
 ==========================================
+## *version 2* 
+Start with [version 1](v_1.md) then return ;)  
 
-This is an example of an activity schema populated with fictional data
+Welcome back!  
 
-### Useful links  
-  
-- [Pros and cons of Activity Schema](https://www.reddit.com/r/SQL/comments/qj1czv/comment/hinjb2y/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button), a useful comment in the discussion on Reddit  
-- [Introducing the ACTIVITY SCHEMA](https://youtu.be/c0WKg0HBhQs) by Ahmed Ensamadisi. Rather an ad of a product, actually  
-- [ActivitySchema repo](https://github.com/ActivitySchema/ActivitySchema/blob/main/README.md) with explanation and documentation  
-- [Avtivity Schema - future of the Data Modeling?](https://www.youtube.com/live/JXdz7-hCJyI?feature=share) by Nikolay Golov. One of the best explanations with strong and weak points. In Russian, unfortunately  
-- [Exploring the ActivitySchema](https://www.ergestx.com/activity-schema/), another exampleof a good explanation with examples of temporal relations (First ever, Last ever, First before, etc.)  
-
-### List of files:
-[Funnel image](Funnel.png)  
-[Activity table](activity_table_peargrape.csv)  
-[SQL script](script.sql)  
-
-## Conceptual schema of activity
-![Sales funnel](Funnel.png "Sales funnel")
-
-<br>
-
-There are 4 types of activities, `click` -> `lead` -> `consultation` -> `sale`. A customer clicks links one or several times (links they have clicked are displayed in `link` column), then it can be followed by a `lead` with filling a form (displayed in `feature_json` column), then a `consultation` comes (`feature_json` displays preferred time), and, finally, it can end up with a sale. In this case, there is a description in `feature_json` column, e.g. 
-```json
-{
-  "product": "ebook", "price": 19.99
-}
-```
-<br>
+**Here, we create a large [activity table](v_2/table_2k.csv) with dummy data and write a [query](v_2/v_2_Script.sql) to calculate conversion**
 
 
-## Table creation
-Now, we need to create a table based on the [example](https://github.com/ActivitySchema/ActivitySchema/blob/main/2.0.md#activity-stream)
 
-**Column**|**Description**|**Type**|**Required**
------|-----|-----|-----
-activity\_id|Unique identifier for the activity record|string|yes
-ts|Timestamp for when the activity occurred|timestamp|yes
-customer|Email as a unique identifier for the customer|string|yes
-activity|Name of the activity based on funnel (`click`, `lead`, `consultation`, `sale`)|string|yes
-anonymous_customer\_id|A unique customer id for cases when `customer` value is null|string|no
-feature\_json|Activity-specific features|JSON|yes
-revenue\_impact|Revenue or cost associated with the activity. Not null only when activity value is `sale`|float|no
-link|URL of a link. . Not null only when activity value is `click` |string|no
-<br>
+**SPOILER:  
 
-We are going to do the following steps:
-1. [Create an empty table `activity_table` in SQL](#-1-create-empty-table)
-2. [Generate data for the table using ChatGPT](#-2-generate-data)
-3. [Copy data into MS Excel, preprocess it and save in a .csv file](#-3-copy-data-into-excel)
-4. [Populate table we created in step 1 with data from .csv file](#-4-populate-table)
-<br>
+The final [query](v_2/v_2_Script.sql):  
 
-## Create an empty table
-To do this, we create an empty table:
 ```sql
-CREATE TABLE activity_table (
-  activity_id varchar(50) PRIMARY KEY,
-  ts timestamp,
-  customer varchar(200),
-  activity varchar(50),
-  anonymous_customer_id varchar(200),
-  feature_json json,
-  revenue_impact decimal(5,2),
-  link varchar(200)
-);
+
+SELECT customer, link, COUNT(*) AS sequence_count
+FROM (
+    SELECT customer, link, activity,
+           LEAD(activity, 1) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_activity_1,
+           LEAD(activity, 2) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_activity_2,
+           LEAD(activity, 3) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_activity_3
+    FROM table_activity ta  
+) subquery
+WHERE activity = 'click'
+  AND next_activity_1 = 'lead'
+  AND next_activity_2 = 'consultation'
+  AND next_activity_3 = 'sale'
+GROUP BY 1, 2;
 ```
-<br>
 
-The SQL script (with other queries) is available via [link](script.sql)
+![](v_2/pics/Script_cust_link.png)  
 
-<br>
 
-## Generate data for the table using ChatGPT
-<br>
 
-![Request for ChatGPT](Create-table.png "A successful (after a couple of hundreds of attempts) request for ChatGPT")
-<br>
 
-Then, we need data for our table. ChatGPT is a very powerful and helpful tool but still needs 'help' from a human.
-To tell the truth, this was the hardest part. ChatGPT can generate tables and do a lot of funny and useful stuff but if it forgets something, it is much easier to start the process from the beginning than to explain what exactly should be improved.
-Initially, I was going to generate about 500 rows.
+### Version 2 updates:
+- New [activity schema](v_2/table_2k.csv) (2K+ rows) with dummy data 
+- [Test dataset](v_2/test_dataset.csv) (30 rows, for testing queries)  
+- [SQL script](v_2/v_2_Script.sql) for calculating conversion 
+- [Jupyter notebook](v_2/activity_schema_script.ipynb) for creating new activity schema 
 
-<br>
 
-![Alt text](Table.png "'Certainly I can,' told me ChatGPT")
-<br>
+### Here is the plan:  
 
-After some attempts and discussions with a polite but not very clever (and sometimes almost stupid and useless) AI, I had to suppress my hunger for data down to 130 rows. 
-That was not the end of pain and suffering which we will see in the next step.
+1. Augment dummy data from the [first table](activity_table_peargrape.csv) using Jupyter (see [notebook](v_2/activity_schema_script.ipynb))  
+2. Open the table in DBeaver (using PostgreSQL) and write a [query](v_2/v_2_Script.sql)  
 
-<br>
+## 1. Augment dummy data and create a large table  
 
-## Copy data into MS Excel, preprocess it and save in a .csv file
+See the illustrated history below or just open the [notebook](v_2/activity_schema_script.ipynb)  
 
-Data from the table was copied and preprocessed, redundant spaces deleted. It turned out that 'unique' values of `activity_id` turned out to be non-unique (thank to ChatGPT) were replaced.
-Moreover, logic of a funnel (`click` -> `lead` -> `consultation` -> `sale`) was not always present correctly (for example, there were customers with only `lead` activities). There were also customers with both non-null `customer` and `anonymous_customer_id` as well as rows where both columns were null. This all was corrected manually.
-All in all, we have a [table](activity_table_peargrape.csv)!
+![](v_2/pics/Jupyter_01.png "Start")  
 
-## Populate table we created in step 1 with data from .csv file
-This was the easiest part using **psql**. 
-Some time spent, and here we go!
+![](v_2/pics/Jupyter_02.png)  
 
-<br>
+![](v_2/pics/Jupyter_03.png)  
 
-![Result of work](sql-result.png "Finally, our model is ready!")
+![](v_2/pics/Jupyter_04.png)  
 
-<br>
+![](v_2/pics/Jupyter_05.png) 
 
-Done! Now we can query our model. There are some simple queries in [script.sql](script.sql) file
+![](v_2/pics/Jupyter_06.png) 
 
-<br>
+![](v_2/pics/Jupyter_07.png)  
 
-**Thank you for your patience!**
+![](v_2/pics/Jupyter_08.png)  
 
-<br>
 
+The [large activity table](v_2/table_2k.csv) is created!  
+
+
+## 2. Create a query  
+
+Now, we are about to create a query.  
+
+I remind that only a strict sequence `click`&rarr; `lead` &rarr; `consultation` &rarr; `sale` should be considered, i.e., when there is a `click` &rarr; `consultation` or a `sale` &rarr; `sale` &rarr; `consultation` &rarr; `sale` situation, they must be ignored.
+
+To check the query, I created a [test table](v_2/test_dataset.csv) of 30 rows based on our large table.  
+
+![](v_2/pics/test_table_pic.png)  
+
+Look at the picture above. There are 3 **real** matches (the same user has gone through all the funnel), highlighted in **yellow**, and a **false** one (**red**). In the picture (I am not good at drawing, sorry) you can see that the fals match is in fact a "right" sequence of activities but it belongs to different customers. Wrong code can count it as another match.  
+
+I asked my good old friend to help me, and he (or she) gladly did.  
+
+![](v_2/pics/Chatgpt_01.png)  
+
+Unfortunately, this code was lame. Window function cannot be used in WHERE.   
+
+I told Chat GPT about it (in Russian!), and it created working code:  
+
+![](v_2/pics/Chatgpt_02.png)  
+
+```sql
+SELECT customer, link, COUNT(*) AS sequence_count
+FROM (
+    SELECT customer, link, activity,
+           LEAD(activity, 1) OVER (ORDER BY customer, ts) AS next_activity_1,
+           LEAD(activity, 2) OVER (ORDER BY customer, ts) AS next_activity_2,
+           LEAD(activity, 3) OVER (ORDER BY customer, ts) AS next_activity_3
+    FROM test_dataset td  
+) subquery
+WHERE activity = 'click'
+  AND next_activity_1 = 'lead'
+  AND next_activity_2 = 'consultation'
+  AND next_activity_3 = 'sale'
+GROUP BY 1, 2;
+```
+
+
+Now it's time to check it on my test table!  
+
+![](v_2/pics/Postgre_01.png)  
+
+**4** funnels. Now do you understand why we created the [test table](v_2/test_dataset.csv)?  
+
+We obviously need a partition but let's give our good old friend a second chance!  
+
+![](v_2/pics/Chatgpt_03.png)  
+
+```sql
+SELECT customer, link, COUNT(*) AS sequence_count
+FROM (
+    SELECT customer, link, activity,
+           LEAD(activity, 1) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_activity_1,
+           LEAD(activity, 2) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_activity_2,
+           LEAD(activity, 3) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_activity_3
+    FROM test_dataset td  
+) subquery
+WHERE activity = 'click'
+  AND next_activity_1 = 'lead'
+  AND next_activity_2 = 'consultation'
+  AND next_activity_3 = 'sale'
+GROUP BY 1, 2;
+```
+See [test dataset query](v_2/test_data_query.sql)  
+
+What's the result?  
+
+![](v_2/pics/Postgre_02.png)  
+
+**3 rows**. Ta-da!  
+
+Now we do the same with our large table.
+
+The final [query](v_2/v_2_Script.sql):  
+
+```sql
+
+SELECT customer, link, COUNT(*) AS sequence_count
+FROM (
+    SELECT customer, link, activity,
+           LEAD(activity, 1) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_activity_1,
+           LEAD(activity, 2) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_activity_2,
+           LEAD(activity, 3) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_activity_3
+    FROM table_activity ta  
+) subquery
+WHERE activity = 'click'
+  AND next_activity_1 = 'lead'
+  AND next_activity_2 = 'consultation'
+  AND next_activity_3 = 'sale'
+GROUP BY 1, 2;
+```
+
+![](v_2/pics/Script_cust_link.png)  
+
+Read [version 1](v_1.md)
+
+**Thank you for your patience!**  
 
 I am available via email karavaevms(at)gmail(dot)com, Telegram @karavaevms, [LinkedIn](https://www.linkedin.com/in/mikhail-karavaev/)
