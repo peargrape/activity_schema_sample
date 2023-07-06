@@ -5,7 +5,7 @@ Start with [version 1](v_1.md) then return ;)
 
 Welcome back!  
 
-**Here, we create a large [activity table](v_2/table_2k.csv) with dummy data and write a [query](v_2/v_2_Script.sql) to calculate conversion**
+**Here, we create a large [activity table](v_2/table_events.csv) with dummy data and write a [query](v_2/v_2_Script.sql) to calculate conversion**
 
 
 
@@ -15,22 +15,37 @@ The final [query](v_2/v_2_Script.sql):
 
 ```sql
 
-SELECT customer, link, COUNT(*) AS sequence_count
+WITH cte AS (
+SELECT link, COUNT(*) AS sequence_count
 FROM (
-    SELECT customer, link, activity,
-           LEAD(activity, 1) OVER (PARTITION BY customer 
-           ORDER BY customer, ts) AS next_activity_1,
-           LEAD(activity, 2) OVER (PARTITION BY customer 
-           ORDER BY customer, ts) AS next_activity_2,
-           LEAD(activity, 3) OVER (PARTITION BY customer 
-           ORDER BY customer, ts) AS next_activity_3
-    FROM table_activity ta  
+    SELECT link, "event",
+           LEAD("event", 1) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_event_1,
+           LEAD("event", 2) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_event_2,
+           LEAD("event", 3) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_event_3
+    FROM table_events te  
 ) subquery
-WHERE activity = 'click'
-  AND next_activity_1 = 'lead'
-  AND next_activity_2 = 'consultation'
-  AND next_activity_3 = 'sale'
-GROUP BY 1, 2;
+WHERE "event" = 'link_clicked'
+  AND next_event_1 = 'lead_generated'
+  AND next_event_2 = 'cons_arranged'
+  AND next_event_3 = 'payment_made'
+GROUP BY 1
+),
+
+clicks AS (
+SELECT link, count(*) AS link_clicked_count
+FROM table_events te
+WHERE "event" = 'link_clicked'
+GROUP BY te.link)
+
+SELECT c.link, 
+       CAST(c.sequence_count AS decimal) / cl.link_clicked_count "conversion"
+FROM cte c
+INNER JOIN clicks cl 
+ON c.link = cl.link
+ORDER BY 2 DESC;
 ```
 
 ![](v_2/pics/Script_cust_link.png)  
@@ -39,20 +54,35 @@ GROUP BY 1, 2;
 
 
 ### Version 2 updates:
-- New [activity schema](v_2/table_2k.csv) (2K+ rows) with dummy data 
+- New [activity schema](v_2/table_events.csv) (2K+ rows) with dummy data 
 - [Test dataset](v_2/test_dataset.csv) (30 rows, for testing queries)  
 - [SQL script](v_2/v_2_Script.sql) for calculating conversion 
 - [Jupyter notebook](v_2/activity_schema_script.ipynb) for creating new activity schema 
+- [Script](v_2/script_table_fixes.sql) fixing the activity schema after Jupyter notebook
+
+
+### Naming convention  
+
+In names of events, I will use passive voice and snake_case, e.g., link_clicked, job_completed. Therefore, the column `activity` in [table version 1](activity_table_peargrape.csv) will be renamed for `event`.  
+
+Then, event titles will be replaced in the following way:  
+
+**Old value**|**New value**  
+-----|----- 
+click|link_clicked
+lead|lead_generated
+consultation|cons_arranged
+sale|payment_made
 
 
 ### Here is the plan:  
 
-1. Augment dummy data from the [first table](activity_table_peargrape.csv) using Jupyter (see [notebook](v_2/activity_schema_script.ipynb))  
+1. Augment dummy data from the [first table](activity_table_peargrape.csv) using Jupyter (see [notebook](v_2/activity_schema_script.ipynb)) and PostgreSQL (see [script](v_2/script_table_fixes.sql))
 2. Open the table in DBeaver (using PostgreSQL) and write a [query](v_2/v_2_Script.sql)  
 
 ## 1. Augment dummy data and create a large table  
 
-See the illustrated history below or just open the [notebook](v_2/activity_schema_script.ipynb)  
+See the illustrated history below or just open the [notebook](v_2/activity_schema_script.ipynb) and a [fixing script](v_2/script_table_fixes.sql)
 
 ![](v_2/pics/Jupyter_01.png "Start")  
 
@@ -70,8 +100,21 @@ See the illustrated history below or just open the [notebook](v_2/activity_schem
 
 ![](v_2/pics/Jupyter_08.png)  
 
+![](v_2/pics/Jupyter_09.png)  
 
-The [large activity table](v_2/table_2k.csv) is created!  
+![](v_2/pics/Jupyter_10.png)  
+
+![](v_2/pics/Jupyter_11.png)  
+
+![](v_2/pics/Jupyter_12.png)  
+
+![](v_2/pics/Postgre_fix_01.png)  
+
+![](v_2/pics/Postgre_fix_02.png)
+
+
+
+The [large activity table](v_2/table_events.csv) is created!  
 
 
 ## 2. Create a query  
@@ -155,22 +198,37 @@ The final [query](v_2/v_2_Script.sql):
 
 ```sql
 
-SELECT customer, link, COUNT(*) AS sequence_count
+WITH cte AS (
+SELECT link, COUNT(*) AS sequence_count
 FROM (
-    SELECT customer, link, activity,
-           LEAD(activity, 1) OVER (PARTITION BY customer 
-           ORDER BY customer, ts) AS next_activity_1,
-           LEAD(activity, 2) OVER (PARTITION BY customer 
-           ORDER BY customer, ts) AS next_activity_2,
-           LEAD(activity, 3) OVER (PARTITION BY customer 
-           ORDER BY customer, ts) AS next_activity_3
-    FROM table_activity ta  
+    SELECT link, "event",
+           LEAD("event", 1) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_event_1,
+           LEAD("event", 2) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_event_2,
+           LEAD("event", 3) OVER (PARTITION BY customer 
+           ORDER BY customer, ts) AS next_event_3
+    FROM table_events te  
 ) subquery
-WHERE activity = 'click'
-  AND next_activity_1 = 'lead'
-  AND next_activity_2 = 'consultation'
-  AND next_activity_3 = 'sale'
-GROUP BY 1, 2;
+WHERE "event" = 'link_clicked'
+  AND next_event_1 = 'lead_generated'
+  AND next_event_2 = 'cons_arranged'
+  AND next_event_3 = 'payment_made'
+GROUP BY 1
+),
+
+clicks AS (
+SELECT link, count(*) AS link_clicked_count
+FROM table_events te
+WHERE "event" = 'link_clicked'
+GROUP BY te.link)
+
+SELECT c.link, 
+       CAST(c.sequence_count AS decimal) / cl.link_clicked_count "conversion"
+FROM cte c
+INNER JOIN clicks cl 
+ON c.link = cl.link
+ORDER BY 2 DESC;
 ```
 
 ![](v_2/pics/Script_cust_link.png)  
